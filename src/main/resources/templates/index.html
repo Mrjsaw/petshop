@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
-<head th:replace="~{partials/header :: head(#{navigation.home})}"></head>
+<head th:replace="~{partials/header :: head('Home')}"></head>
 
 <body>
+<div class="container">
 <nav th:replace="~{partials/navigation :: navigation}"></nav>
+</div>
 <!--Main layout-->
 <main>
 
@@ -20,7 +22,7 @@
 
                         <!--Card image-->
                         <div class="view overlay">
-                            <img th:src="@{/images/1.jpg}" class="card-img-top"
+                            <img th:src="@{${product.photoUrl}}" class="card-img-top"
                                  alt="">
                             <a>
                                 <div class="mask rgba-white-slight"></div>
@@ -31,19 +33,19 @@
                         <!--Card content-->
                         <div class="card-body text-center">
                             <!--Category & Title-->
-                            <a href="" class="grey-text">
+                            <p class="grey-text">
                                 <h5 th:text="${product.category}"></h5>
-                            </a>
+                            </p>
                             <h5>
                                 <strong>
-                                    <a href="" class="dark-grey-text" th:text="${product.title}">
+                                    <p class="dark-grey-text" th:text="${product.title}">
                                         <span class="badge badge-pill danger-color">NEW</span>
-                                    </a>
+                                    </p>
                                 </strong>
                             </h5>
 
                             <h4 class="font-weight-bold blue-text">
-                                <strong th:text="'$ ' + ${product.price}"></strong>
+                                <strong th:text="${product.price} + '$'"></strong>
                             </h4>
                             <div sec:authorize="isAuthenticated()">
                                 <form method="get" th:action="@{/cart/add}">
@@ -52,7 +54,7 @@
                                                name="id" hidden >
                                     </div>
                                     <button class="btn btn-primary" th:field="submit"
-                                            >Add Cart</button>
+                                            >Add to Cart</button>
                                 </form>
                             </div>
 

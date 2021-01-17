@@ -20,10 +20,10 @@ public class Order {
             name = "product_order",
             joinColumns = @JoinColumn(name = "order_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id"))
-    private List<Product> products;
+    private List<Product> myProducts;
 
     public Order(List<Product> products, User user, double price) {
-        this.products = products;
+        this.myProducts = products;
         this.user = user;
         this.price = price;
     }
@@ -54,10 +54,10 @@ public class Order {
     }
 
     public List<Product> getProducts() {
-        return products;
+        return myProducts;
     }
 
     public void setProducts(List<Product> products) {
-        this.products = products;
+        this.myProducts = products;
     }
 }

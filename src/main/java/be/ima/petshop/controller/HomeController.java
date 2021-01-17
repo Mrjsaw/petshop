@@ -20,4 +20,22 @@ public class HomeController {
         model.addAttribute("producten", allProducts);
         return "index";
     }
+    @RequestMapping(value = {"/toys"} , method = RequestMethod.GET)
+    public String toys(ModelMap model){
+        List<Product> allProducts = productRepo.findAllByCategory("Toys");
+        model.addAttribute("producten", allProducts);
+        return "index";
+    }
+    @RequestMapping(value = {"/food"} , method = RequestMethod.GET)
+    public String food(ModelMap model){
+        List<Product> allProducts = productRepo.findAllByCategory("Food");
+        model.addAttribute("producten", allProducts);
+        return "index";
+    }
+    @RequestMapping(value = {"/acc"} , method = RequestMethod.GET)
+    public String acc(ModelMap model){
+        List<Product> allProducts = productRepo.findAllByCategory("Accessories");
+        model.addAttribute("producten", allProducts);
+        return "index";
+    }
 }

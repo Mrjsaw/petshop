@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
-<nav th:fragment="navigation" class="mb-1 navbar navbar-expand-lg navbar-dark bg-dark">
+<nav th:fragment="navigation" class="mb-1 navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" th:href="@{/}" style="color:white;">AnimalShop</a>
+    <a class="navbar-brand"></a>
+    <a class="navbar-brand"  th:href="@{/}" style="color:grey;">All Categories</a>
+    <a class="navbar-brand" th:href="@{/toys}" style="color:grey;">Toys</a>
+    <a class="navbar-brand"  th:href="@{/acc}" style="color:grey;">Accessories</a>
+    <a class="navbar-brand"  th:href="@{/food}" style="color:grey;">Food</a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link">Products</a>
-            </li>
-        </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link"> Shopping Cart  </a>
+                <a class="nav-link" th:href="@{/cart/show}"> Shopping Cart  </a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

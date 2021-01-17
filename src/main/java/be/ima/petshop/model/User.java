@@ -19,6 +19,7 @@ public class User {
             name = "shoppingcart",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id"))
+
     private List<Product> cart;
 
     private String firstName;

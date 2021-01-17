@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="~{partials/header :: head('Shopping Cart')}"></head>
+
+<body>
+<nav th:replace="~{partials/navigation :: navigation}"></nav>
+
+<style>
+    .item {
+        position: relative;
+    }
+
+    .form {
+        position: absolute;
+        width: 36vw;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, 24%);
+    }
+</style>
+<!--Main layout-->
+<main>
+
+    <div class="container">
+        <div class="item">
+            <form class="text-center border border-light p-5 form" th:action="@{/cart}" method="POST">
+                <p class="h4 mb-4">Shopping Cart</p>
+                <div th:if="${products_cart.size() <= 0}">
+                    <p> You haven't added any items to the Shopping Cart!</p>
+                </div>
+                <div th:each="product: ${products_cart}">
+                    <img style="display: inline" class="h5 mb-4" width="50" height="50" th:src="@{${product.photoUrl}}">
+                <p style="display: inline" class="h5 mb-4" th:text="${product.title}"></p>
+                    <p style="display: inline" class="h5 mb-4" th:text="'$' + ${product.price}"></p>
+                    <img style="display: inline; padding-top: 4;" class="h5 mb-4" th:src="@{/images/delete-24px.svg}">
+                </div>
+                <br>
+                <div th:if="${products_cart.size() > 0}">
+                <p class="h2 mb-4" th:text="'Total Price: $'+ ${total_price}"></p>
+                <button class="btn btn-info btn-block my-4" type="submit" style="background-color: #24a0ed !important;">Complete Order</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</main>
+
+<div th:replace="~{partials/footer :: footer}"></div>
+
+</body>
+</html>

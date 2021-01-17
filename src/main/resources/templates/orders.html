@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="~{partials/header :: head('My Orders')}"></head>
+
+<body>
+<nav th:replace="~{partials/navigation :: navigation}"></nav>
+
+<style>
+    .item {
+        position: relative;
+    }
+
+    .orders {
+        position: absolute;
+        width: 36vw;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, 24%);
+    }
+</style>
+<!--Main layout-->
+<main>
+
+    <div class="container">
+        <div class="item">
+            <table class="table orders">
+                <thead>
+                <tr>
+                    <th scope="col">Order id</th>
+                    <th scope="col">Total Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                <div th:each="order : ${orders}">
+                    <tr>
+                    <th scope="row" th:text="${order.getId()}"></th>
+                    <th th:text="${order.getPrice()} + '$'"></th>
+                    </tr>
+                </div>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</main>
+
+<div th:replace="~{partials/footer :: footer}"></div>
+
+</body>
+</html>>

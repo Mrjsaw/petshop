@@ -12,7 +12,6 @@ public class Product {
     private int id;
 
     private String title;
-    private String description;
     private String photoUrl;
     private String category;
     private double price;
@@ -49,13 +48,6 @@ public class Product {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public String getPhotoUrl() {
         return photoUrl;

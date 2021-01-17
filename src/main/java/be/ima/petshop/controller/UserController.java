@@ -56,12 +56,6 @@ public class UserController {
         return "redirect:/";
     }
 
-    @GetMapping(value = "/orders")
-    public String showOrders(ModelMap map, Principal principal){
-        User user = userRepo.findByEmail(principal.getName());
-        map.addAttribute("orders", user.getOrders());
-        return "orders";
-    }
 
     @ModelAttribute(value = "registerUserDAO")
     public UserDAO registerUserDAO()
