@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{partials/header :: head(#{navigation.home})}"></head>
+<style>
+    .item {
+        position: relative;
+    }
+
+    .form {
+        position: absolute;
+        width: 36vw;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, 24%);
+    }
+</style>
+<body>
+<nav th:replace="~{partials/navigation :: navigation}"></nav>
+<div class="container py-4">
+    <div class="item">
+        <form class="text-center border border-light p-5 form" th:object="${registerUserDAO}" th:action="@{/register}" method="POST">
+            <label for="firstName">First name</label>
+    <input th:field="*{firstName}" id="firstName" type="text" class="form-control mb-4">
+            <label for="lastName">Last name</label>
+    <input th:field="*{lastName}" id="lastName" type="text" class="form-control mb-4">
+            <label for="email">Email address</label>
+    <input th:field="*{email}" id="email" type="email" class="form-control mb-4">
+            <label for="password">Password</label>
+    <input th:field="*{password}" id="password" type="password" class="form-control mb-4">
+            <label for="confirmPassword">Repeat password</label>
+    <input th:field="*{confirmPassword}" id="confirmPassword" type="password" class="form-control mb-4">
+
+    <button class="btn btn-info btn-block my-4" type="submit" style="background-color: #64ad6a !important;">Register</button>
+
+    <div>
+        <p style="display: inline">Already have an account?</p>
+        <a th:href="@{/login}">Sign in</a>
+</div>
+<div th:replace="~{partials/footer :: footer}"></div>
+</body>
+</html>
