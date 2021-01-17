@@ -10,7 +10,7 @@
         position: absolute;
         width: 36vw;
         left: 50%;
-        top: 50%;
+        top: 20%;
         transform: translate(-50%, 24%);
     }
 </style>
@@ -19,6 +19,7 @@
 <div class="container py-4">
     <div class="item">
         <form class="text-center border border-light p-5 form" th:object="${registerUserDAO}" th:action="@{/register}" method="POST">
+            <p class="h4 mb-4">Register</p>
             <label for="firstName">First name</label>
     <input th:field="*{firstName}" id="firstName" type="text" class="form-control mb-4">
             <label for="lastName">Last name</label>
